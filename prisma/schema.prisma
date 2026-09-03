@@ -1,0 +1,213 @@
+// Generated schema — modeled after beautyhqio conventions.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         Role     @default(ANALYST)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  ANALYST
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  actorName String?
+  action    String
+  entity    String
+  entityId  String?
+  detail    String?
+  createdAt DateTime @default(now())
+}
+
+model Executive {
+  id        String   @id @default(cuid())
+  name String
+  title String
+  office String
+  assistant String
+  status String
+  timezone String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  commitments Commitment[]
+  followUps FollowUp[]
+  meetingNotes MeetingNote[]
+  weeklyReports WeeklyReport[]
+  decisionBriefs DecisionBrief[]
+  draftCommunications DraftCommunication[]
+  sourceFeeds SourceFeed[]
+  actionItems ActionItem[]
+  escalationEvents EscalationEvent[]
+  stakeholderAccounts StakeholderAccount[]
+  calendarWindows CalendarWindow[]
+}
+
+model Commitment {
+  id        String   @id @default(cuid())
+  who String
+  what String
+  source String?
+  dueDate DateTime?
+  status String
+  noticedAt String
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FollowUp {
+  id        String   @id @default(cuid())
+  commitmentRef String
+  recipient String
+  draftBody String
+  channel String
+  status String
+  sentAt DateTime?
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MeetingNote {
+  id        String   @id @default(cuid())
+  meeting String
+  attendees String
+  keyDecisions String
+  actionItems String
+  status String
+  heldAt DateTime?
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model WeeklyReport {
+  id        String   @id @default(cuid())
+  period String
+  highlights String
+  risks String
+  asks String
+  status String
+  sentAt DateTime?
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model DecisionBrief {
+  id        String   @id @default(cuid())
+  topic String
+  options String
+  recommendation String
+  status String
+  dueDate DateTime?
+  decision String?
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model DraftCommunication {
+  id        String   @id @default(cuid())
+  kind String
+  audience String
+  subject String
+  body String
+  status String
+  approvedBy String?
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SourceFeed {
+  id        String   @id @default(cuid())
+  system String
+  scope String
+  scopeDetail String
+  status String
+  lastSyncedAt DateTime?
+  itemsSynced Int
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ActionItem {
+  id        String   @id @default(cuid())
+  owner String
+  item String
+  fromMeeting String
+  status String
+  dueDate DateTime?
+  notes String?
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model EscalationEvent {
+  id        String   @id @default(cuid())
+  trigger String
+  severity String
+  notified String
+  status String
+  raisedAt DateTime?
+  outcome String?
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model StakeholderAccount {
+  id        String   @id @default(cuid())
+  name String
+  relationship String
+  accountabilityArea String
+  health String
+  status String
+  lastContact DateTime?
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CalendarWindow {
+  id        String   @id @default(cuid())
+  purpose String
+  attendees String
+  startAt DateTime?
+  durationMin Int
+  protection String
+  status String
+  execId String?
+  exec Executive? @relation(fields: [execId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
