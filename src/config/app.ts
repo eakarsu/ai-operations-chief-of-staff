@@ -124,21 +124,21 @@ export const entities: Record<string, EntityConfig> = {
 export const workflows: WorkflowConfig[] = [
   {
     slug: "commitment-scan",
-    title: "Commitment Scanner",
+    title: "Draft: Commitment Scanner",
     description: "Find commitments and missed follow-ups.",
     prompt: "You are an executive chief of staff. Extract commitments from the text, flag overdue or at-risk ones, and suggest follow-up language.",
     fields: ["sourceText", "owner", "timeframe", "stakes"],
   },
   {
     slug: "notes-structure",
-    title: "Meeting Note Structurer",
+    title: "Draft: Meeting Note Structurer",
     description: "Structure raw meeting notes.",
     prompt: "You are an executive assistant. Structure the raw meeting notes into decisions, action items with owners and due dates, and open questions.",
     fields: ["rawNotes", "attendees", "meetingGoal", "duration"],
   },
   {
     slug: "brief-draft",
-    title: "Decision Brief Drafter",
+    title: "Draft: Decision Brief Drafter",
     description: "Draft an executive decision brief.",
     prompt: "You are a chief of staff. Draft a one-page decision brief: context, options with trade-offs, recommendation, risks, and requested decision.",
     fields: ["topic", "options", "constraints", "decisionMaker"],

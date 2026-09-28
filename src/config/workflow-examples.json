@@ -1,0 +1,98 @@
+{
+  "commitment-scan": [
+    {
+      "id": "example-1",
+      "label": "Launch follow-ups",
+      "values": {
+        "sourceText": "Example notes: Alex will deliver the test summary by 2026-09-18. Morgan will review by 2026-09-20.",
+        "owner": "Example launch team",
+        "timeframe": "2026-09-15 through 2026-09-20",
+        "stakes": "Release readiness; extract commitments only, no messages sent."
+      }
+    },
+    {
+      "id": "example-2",
+      "label": "Vendor review",
+      "values": {
+        "sourceText": "Example notes: Casey will request the revised quote by 2026-10-01. Approval has not been assigned.",
+        "owner": "Example procurement team",
+        "timeframe": "2026-09-25 through 2026-10-05",
+        "stakes": "Vendor selection; identify missing owner and dependencies."
+      }
+    },
+    {
+      "id": "example-3",
+      "label": "Unclear ownership",
+      "values": {
+        "sourceText": "Example notes: We should refresh the dashboard soon; no owner or date was agreed.",
+        "owner": "Unassigned in the supplied notes",
+        "timeframe": "Date not established; ask for a concrete due date.",
+        "stakes": "Routine planning; distinguish a suggestion from an accepted commitment."
+      }
+    }
+  ],
+  "notes-structure": [
+    {
+      "id": "example-1",
+      "label": "Planning meeting",
+      "values": {
+        "rawNotes": "Example: agreed to pilot the checklist; Alex owns a draft due 2026-09-18; budget decision deferred.",
+        "attendees": "Example participants: Alex, Morgan, Casey",
+        "meetingGoal": "Agree on a pilot owner, scope and next checkpoint",
+        "duration": "30 minutes"
+      }
+    },
+    {
+      "id": "example-2",
+      "label": "Incident review",
+      "values": {
+        "rawNotes": "Example: upload retries created duplicates; team will inspect idempotency; no cause established yet.",
+        "attendees": "Example participants: engineering lead and support lead",
+        "meetingGoal": "Separate observations, hypotheses and assigned follow-ups",
+        "duration": "45 minutes"
+      }
+    },
+    {
+      "id": "example-3",
+      "label": "Partner discussion",
+      "values": {
+        "rawNotes": "Example: partner requested a revised scope; procurement needs a quote; contract approval is pending.",
+        "attendees": "Example participants: partner representative and project owner",
+        "meetingGoal": "Capture open decisions and evidence needed for approval",
+        "duration": "25 minutes"
+      }
+    }
+  ],
+  "brief-draft": [
+    {
+      "id": "example-1",
+      "label": "Pilot scope",
+      "values": {
+        "topic": "Fictional onboarding pilot",
+        "options": "Option A: one cohort; Option B: two cohorts",
+        "constraints": "Six weeks, fixed budget, evaluation owner required",
+        "decisionMaker": "Example program director"
+      }
+    },
+    {
+      "id": "example-2",
+      "label": "Staff allocation",
+      "values": {
+        "topic": "Fictional support staffing allocation",
+        "options": "Option A: shift existing coverage; Option B: add temporary capacity",
+        "constraints": "Maintain service hours; costs and staff preferences need review",
+        "decisionMaker": "Example operations manager"
+      }
+    },
+    {
+      "id": "example-3",
+      "label": "Vendor choice",
+      "values": {
+        "topic": "Fictional reporting vendor selection",
+        "options": "Option A: extend current tool; Option B: new managed service",
+        "constraints": "Security review, data portability and budget cap",
+        "decisionMaker": "Example technology lead"
+      }
+    }
+  ]
+}

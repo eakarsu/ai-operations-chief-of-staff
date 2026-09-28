@@ -1,0 +1,534 @@
+{
+  "Executive": {
+    "name": "Executive",
+    "fields": [
+      {
+        "name": "name",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "title",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "office",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "assistant",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "timezone",
+        "kind": "string",
+        "required": true
+      }
+    ]
+  },
+  "Commitment": {
+    "name": "Commitment",
+    "fields": [
+      {
+        "name": "who",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "what",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "source",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "dueDate",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "noticedAt",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "FollowUp": {
+    "name": "FollowUp",
+    "fields": [
+      {
+        "name": "commitmentRef",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "recipient",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "draftBody",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "channel",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "sentAt",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "MeetingNote": {
+    "name": "MeetingNote",
+    "fields": [
+      {
+        "name": "meeting",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "attendees",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "keyDecisions",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "actionItems",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "heldAt",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "WeeklyReport": {
+    "name": "WeeklyReport",
+    "fields": [
+      {
+        "name": "period",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "highlights",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "risks",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "asks",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "sentAt",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "DecisionBrief": {
+    "name": "DecisionBrief",
+    "fields": [
+      {
+        "name": "topic",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "options",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "recommendation",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "dueDate",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "decision",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "DraftCommunication": {
+    "name": "DraftCommunication",
+    "fields": [
+      {
+        "name": "kind",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "audience",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "subject",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "body",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "approvedBy",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "SourceFeed": {
+    "name": "SourceFeed",
+    "fields": [
+      {
+        "name": "system",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "scope",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "scopeDetail",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "lastSyncedAt",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "itemsSynced",
+        "kind": "number",
+        "required": true,
+        "integer": true
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "ActionItem": {
+    "name": "ActionItem",
+    "fields": [
+      {
+        "name": "owner",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "item",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "fromMeeting",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "dueDate",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "notes",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "EscalationEvent": {
+    "name": "EscalationEvent",
+    "fields": [
+      {
+        "name": "trigger",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "severity",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "notified",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "raisedAt",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "outcome",
+        "kind": "string",
+        "required": false
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "StakeholderAccount": {
+    "name": "StakeholderAccount",
+    "fields": [
+      {
+        "name": "name",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "relationship",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "accountabilityArea",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "health",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "lastContact",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  },
+  "CalendarWindow": {
+    "name": "CalendarWindow",
+    "fields": [
+      {
+        "name": "purpose",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "attendees",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "startAt",
+        "kind": "date",
+        "required": false
+      },
+      {
+        "name": "durationMin",
+        "kind": "number",
+        "required": true,
+        "integer": true
+      },
+      {
+        "name": "protection",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "kind": "string",
+        "required": true
+      },
+      {
+        "name": "execId",
+        "kind": "string",
+        "required": false,
+        "relation": "Executive"
+      }
+    ],
+    "parent": {
+      "field": "execId",
+      "entity": "Executive"
+    }
+  }
+}
